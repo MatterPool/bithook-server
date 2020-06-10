@@ -6,9 +6,12 @@ Monitor the BSV blockchain in real-time and trigger HTTP webhook callbacks to yo
 
 <a href='https://github.com/louischatriot/nedb'>NeDB</a> is used for fast file-system based access (MongoDB compatible syntax)
 
-**Links**:
+**Features**:
 
-- <a href='https://matterpool.io'>matterpool.io</a>
+- REST API for subscribing and unsubscribing addresses
+- Notify on mempool and block transactions matching any output address
+- Configure multiple callback endpoints ("channels")
+- Exponential back-off to retry failed requests
 
 ## Installation
 
@@ -51,4 +54,82 @@ npm install
 node index.js
 ```
 
-## Installation
+## Callback Example
+
+If any transaction in the mempool or blocks being scanned match the addresses, then a callback will be sent in the following format:
+
+If tx merkleproof information is needed, then make a subsequent call to `https://media.bitcoinfiles.org/tx/f62a4f9278cc06aec86232877e1fe8237fe099b355e54359074c6fe3297e6a5f?includeBlock=1` to retrieve the block information (ie: merkle proof) when the block is mined.
+
+`POST <your endpoint url>`
+
+JSON Body:
+```
+x
+```
+
+## Usage API
+
+See `index.js` routes for more details.
+
+
+#### POST /api/outputs
+
+Add address outputs to monitor to trigger webhook callbacks.
+
+Example: Subscribe to all outputs to Twetch (`1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf`)
+
+Request:
+
+```
+{
+  "outputs": [
+     "1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf"
+  ],
+  "channel": "main"
+}
+```
+
+Response:
+
+```
+[
+    {
+        "idx": "1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf_main",
+        "f": "1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf",
+        "c": "main",
+        "_id": "JAjCL49CSckexk8x"
+    }
+]
+```
+
+
+#### GET /api/outputs
+
+Get all monitored addresses.
+
+Response:
+
+```
+[
+    {
+        "idx": "1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf_main",
+        "f": "1Twetcht1cTUxpdDoX5HQRpoXeuupAdyf",
+        "c":"main",
+        "_id":"JAjCL49CSckexk8x"
+    }
+]
+```
+
+
+#### DELETE /api/outputs/JAjCL49CSckexk8x
+
+Remove address from being monitored.
+
+Response:
+
+```
+{
+    "numRemoved": 1
+}
+```
+

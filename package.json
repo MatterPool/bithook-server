@@ -1,0 +1,55 @@
+{
+  "name": "bithook-server",
+  "version": "0.0.2",
+  "description": "Bithook: BitCoin Webhook Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js test",
+    "lint": "./node_modules/.bin/eslint .",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatterPool/bithook-server.git"
+  },
+  "keywords": [
+    "bitcoin-sv",
+    "bitcoin",
+    "gateway",
+    "webhook",
+    "bsv"
+  ],
+  "author": "MatterPool Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatterPool/bithook-server/issues"
+  },
+  "homepage": "https://github.com/MatterPool/bithook-server#readme",
+  "dependencies": {
+    "bitcoinfiles-sdk": "^2.4.9",
+    "body-parser": "1.19.0",
+    "bsv": "^1.5.3",
+    "commander": "^5.1.0",
+    "compression": "1.7.4",
+    "cors": "^2.8.5",
+    "exponential-backoff": "^3.0.1",
+    "express": "^4.16.4",
+    "lodash": "4.17.15",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.0",
+    "pretty-hrtime": "1.0.3"
+  },
+  "devDependencies": {},
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write",
+      "./node_modules/.bin/eslint --fix .",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
