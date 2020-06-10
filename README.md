@@ -1,5 +1,4 @@
-# Bithook
-> Bitcoin (BSV) Webhook Server
+# Bithook: Simple Bitcoin (BSV) Webhook Server
 > Created by  <a href='https://matterpool.io'>matterpool.io</a>
 
 Monitor the BSV blockchain in real-time and trigger HTTP webhook callbacks to your applications.
@@ -32,10 +31,9 @@ var config = {
     "channels": {
         "main": {
             "secret": "secrett0ken1293",                            // Posted to callback endpoint
-            "callback_url": "https://localhost:8082/foo/bar",       // Endpoint to callback on matching transaction
+            "callback_url": "http://localhost:8084/api/callback_test",  // Endpoint to callback on matching transaction
             "max_attempts_expiry": 10,                              // Expire after attempts. See /api/expired
-            "max_seconds": 300,                                     // Number of seconds between redelivery attempts
-            "col_name": "main",                                     // Do not change. DB mapping field.
+            "max_seconds": 600,                                     // Number of seconds between redelivery attempts
         }
     },
     "connection": {
@@ -44,6 +42,7 @@ var config = {
     },
 }
 module.exports = config;
+
 
 ```
 
@@ -162,7 +161,6 @@ Response:
     }
 ]
 ```
-
 
 #### DELETE /api/outputs/JAjCL49CSckexk8x
 
