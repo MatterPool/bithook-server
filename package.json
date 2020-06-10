@@ -1,7 +1,7 @@
 {
   "name": "bithook-server",
-  "version": "0.0.4",
-  "description": "Bithook: BitCoin Webhook Server",
+  "version": "0.0.5",
+  "description": "Bithook: Bitcoin SV Webhook Server",
   "main": "index.js",
   "scripts": {
     "test": "node index.js test",

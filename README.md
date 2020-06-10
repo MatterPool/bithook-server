@@ -1,4 +1,4 @@
-# Bithook: Simple Bitcoin (BSV) Webhook Server
+# Bithook: Bitcoin SV Webhook Server
 > Created by  <a href='https://matterpool.io'>matterpool.io</a>
 
 Monitor the BSV blockchain in real-time and trigger HTTP webhook callbacks to your applications.
