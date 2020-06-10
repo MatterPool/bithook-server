@@ -8,9 +8,14 @@ Monitor the BSV blockchain in real-time and trigger HTTP webhook callbacks to yo
 **Features**:
 
 - REST API for subscribing and unsubscribing addresses
-- Notify on mempool and block transactions matching any output address
+- Real-time: notify on mempool and block transactions matching any output address
 - Configure multiple callback endpoints ("channels")
 - Exponential back-off to retry failed requests
+- Scales to 10,000++ addresses
+
+<a href='https://developers.matterpool.io'>Developer Resources</a>
+
+<a href='https://www.bitcoinfiles.org'>BitcoinFiles Web</a>
 
 ## Installation
 
@@ -174,3 +179,10 @@ Response:
 }
 ```
 
+## Additional Resources
+
+<a href='https://developers.matterpool.io'>Developers</a>
+
+<a href='https://www.bitcoinfiles.org'>https://www.bitcoinfiles.org</a>
+
+<a href='https://matterpool.io'>matterpool.io</a>
