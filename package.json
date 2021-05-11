@@ -34,7 +34,7 @@
     "cors": "^2.8.5",
     "exponential-backoff": "^3.0.1",
     "express": "^4.16.4",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "nedb": "^1.8.0",
     "node-fetch": "^2.6.0",
     "pretty-hrtime": "1.0.3"
