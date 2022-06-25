@@ -36,7 +36,7 @@
     "express": "^4.16.4",
     "lodash": "4.17.15",
     "nedb": "^1.8.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "pretty-hrtime": "1.0.3"
   },
   "devDependencies": {},
